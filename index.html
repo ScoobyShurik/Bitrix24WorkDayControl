@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Bitrix24</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 mt-2">
+                    <h5 id="current-time"></h5>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <a data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings" id="settingsButton"> <img src="icons/settings.svg" alt=""></a>
+            </div>
+        <div class="container-fluid">
+            <div class="collapse" id="collapseSettings">
+                <div class="card card-body">
+                  <h4>Настройки</h4>
+                  <div class="row mt-1">
+                    <div class="col-6 mt-1">
+                        Частота проверки(в минутах)
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="checkInterval">
+                    </div>
+                  </div>
+                  <div class="row mt-1">
+                    <div class="col-6 mt-1">
+                        Начало рабочего дня
+                    </div>
+                    <div class="col">
+                        <input type="time" class="form-control" id="startDayTime">
+                    </div>
+                  </div>
+                  <div class="row mt-1">
+                    <div class="col-6 mt-1">
+                        Конец рабочего дня
+                    </div>
+                    <div class="col">
+                        <input type="time" class="form-control" id="endDayTime">
+                    </div>
+                  </div>
+                  <div class="form-check form-switch mt-1">
+                    <input class="form-check-input" type="checkbox" id="isFridayShortenedDay">
+                    <label class="form-check-label" for="isFridayShortenedDay">Пятница сокращенный день?</label>
+                  </div>
+                  <div class="collapse mt-1" id="collapseFriday">
+                        <div class="row mt-1">
+                            <div class="col-6 mt-1">
+                                Конец рабочего дня в пятницу
+                            </div>
+                            <div class="col">
+                                <input type="time" class="form-control" id="endDayTimeFriday">
+                            </div>
+                    </div>
+                  </div>
+                <label for="linkStartDay" class="form-label mt-1">Ссылка для начала рабочего дня</label>
+                <input type="text" class="form-control" id="linkStartDay">
+                <label for="linkEndDay" class="form-label mt-1">Ссылка для завершения рабочего дня</label>
+                <input type="text" class="form-control" id="linkEndDay">
+                <label for="linkSatus" class="form-label mt-1">Ссылка для проверки статуса рабочего дня</label>
+                <input type="text" class="form-control" id="linkSatus">
+                <button type="button" id="saveSettings" class="btn btn-primary mt-2">Сохранить</button>
+                </div>
+                </div>
+                <div id="myToast" class="toast text-white bg-success bottom-0 end-0 position-fixed border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                        Данные сохранены
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+                    </div>
+                </div>
+                    <div class="row">
+                            <div class="alert alert-secondary text-center" role="alert">
+                                <div class="row">
+                                <div class="col-8">
+                                    <strong>Текущий статус рабочего дня:</strong>
+                                </div>
+                                <div class="col">
+                                    <strong id="status">Остановлен</strong>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button class="btn btn-success" id="startWorkDay">Открыть рабочий день</button>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button class="btn btn-danger" id="stopWorkDay">Закрыть рабочий день</button>
+                </div>
+            </div>
+                <div class="form-check form-switch mt-4 pl-3 offset-2">
+                    <input class="form-check-input" type="checkbox" id="dontStopDay">
+                    <label class="form-check-label" for="dontStopDay">Не останавливать рабочий день</label>
+                </div>
+                <div class="form-check form-switch mt-4 pl-3 offset-2">
+                    <input class="form-check-input" type="checkbox" id="dontStartDay">
+                    <label class="form-check-label" for="dontStartDay">Не начинать рабочий день</label>
+                </div>
+        </div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>
